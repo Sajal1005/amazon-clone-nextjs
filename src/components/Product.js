@@ -2,19 +2,33 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import { StarIcon } from '@heroicons/react/solid';
 import Currency from "react-currency-format"
+import { useDispatch } from 'react-redux';
+import { addToBasket } from '../slices/basketSlice';
 
 const Max_RATING=5;
 const MIN_RATING=1;
 
 function Product({id,title,price,description,category,image}) {
 
-    //   Code for creating random stars
-    const [rating] = useState(
+  // Code for Dispatching Items in basket
+  const dispatch = useDispatch();
+
+
+  //   Code for creating random stars
+  const [rating] = useState(
     Math.floor(Math.random() * (Max_RATING - MIN_RATING +1)) + MIN_RATING
   );
 
-    // Code for Prime Membership
-    const [hasPrime] = useState(Math.random()<0.5)
+  // Code for Prime Membership
+  const [hasPrime] = useState(Math.random()<0.5)
+
+  const addItemToBasket = () => {
+    const product = {
+      id,title,price,description,category,image
+    };
+    // Sending product as an action to redux store
+    dispatch(addToBasket(product));
+  };
 
   return (
     <div className='relative flex flex-col m-5 bg-white z-30 p-10'>
