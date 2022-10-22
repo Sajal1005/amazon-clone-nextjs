@@ -63,7 +63,7 @@ function Checkout() {
             <>
             <h2 className='whitespace-nowrap'>Subtotal ({items.length} items): &nbsp;
             <span className='font-bold'>
-               ${total}
+               ${total.toFixed(2)}
               </span>
             </h2>
             <button role="link" onClick={createCheckoutSession}
