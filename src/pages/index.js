@@ -8,6 +8,12 @@ export default function Home({products}) {
   return (
     <div className="bg-gray-100">
 
+      <Head>
+        <title>Amazon-NEXTJS</title>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4181021014026300"
+     crossorigin="anonymous"></script>
+      </Head>
+
       {/* Header */}
       <Header/>
     
